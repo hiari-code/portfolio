@@ -1,0 +1,503 @@
+@import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Exo&family=Julius+Sans+One&family=Sacramento&display=swap");
+
+:root {
+  --green: #e1f7d9;
+  --pink: #ff9ac6;
+  --brown: #5a3825;
+  --brown-muted: #7a5a45;
+  --green-line: #789b68;
+  font-family: "Julius Sans One", sans-serif;
+  color: var(--brown);
+  background: var(--green);
+  font-synthesis: none;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--green);
+  margin: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.site-header {
+  align-items: center;
+  background: rgba(191, 235, 174, 0.95);
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  max-width: 1180px;
+  padding: 8px 32px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.logo {
+  font-family: "Exo", cursive;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+}
+.icon-nav {
+  display: flex;
+  gap: 20px;
+}
+.icon-nav-link {
+  align-items: center;
+  display: flex;
+  height: 63px;
+  justify-content: center;
+  position: relative;
+  width: 63px;
+}
+.icon-nav-link img {
+  display: block;
+  height: 51px;
+  object-fit: contain;
+  width: 51px;
+}
+.icon-nav-link.is-clicked img {
+  filter: grayscale(1);
+  opacity: 0.65;
+}
+.nav-mark {
+  align-items: center;
+  border: 1px solid var(--brown);
+  display: flex;
+  font-family: "Julius Sans One", sans-serif;
+  font-size: calc(0.75rem + 5pt);
+  height: 30px;
+  justify-content: center;
+  width: 30px;
+}
+.icon-nav-link:hover img,
+.icon-nav-link:focus-visible img {
+  transform: translateY(-3px);
+}
+.icon-nav-link:hover .nav-mark,
+.icon-nav-link:focus-visible .nav-mark {
+  background: var(--brown);
+  color: var(--pink);
+  transform: translateY(-3px);
+}
+.icon-tooltip {
+  background: var(--brown);
+  color: var(--pink);
+  font-family: "Julius Sans One", sans-serif;
+  font-size: calc(0.68rem + 5pt);
+  left: 50%;
+  letter-spacing: 0.08em;
+  opacity: 0;
+  padding: 7px 9px;
+  pointer-events: none;
+  position: absolute;
+  text-transform: uppercase;
+  top: calc(100% + 8px);
+  transform: translate(-50%, -4px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  white-space: nowrap;
+  z-index: 2;
+}
+.icon-nav-link:hover .icon-tooltip,
+.icon-nav-link:focus-visible .icon-tooltip {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+footer a:hover {
+  color: var(--pink);
+}
+.hero {
+  background: linear-gradient(
+    rgba(241, 252, 237, 0.9),
+    rgba(241, 252, 237, 0.9)
+  );
+  border-top: 1px solid var(--green-line);
+  margin: 80px auto 0;
+  max-width: 1180px;
+  overflow: hidden;
+  padding: 96px 32px 150px;
+  position: relative;
+}
+.hero::before {
+  background: url("./components/menu/icons/welcome.png") center / cover;
+  content: "";
+  filter: saturate(0.88) grayscale(0.03);
+  inset: 0;
+  opacity: 0.8;
+  position: absolute;
+  transition:
+    filter 0.45s ease,
+    opacity 0.45s ease;
+}
+.hero:hover::before,
+.hero:focus-within::before {
+  filter: saturate(0.4) grayscale(0.2);
+  opacity: 0.38;
+}
+.hero > * {
+  opacity: 0;
+  position: relative;
+  transition: opacity 0.45s ease;
+}
+.hero:hover > *,
+.hero:focus-within > * {
+  opacity: 1;
+}
+.eyebrow {
+  color: var(--pink);
+  font-family: "Julius Sans One", sans-serif;
+  font-size: calc(0.78rem + 5pt);
+  font-weight: bold;
+  letter-spacing: 0.14em;
+  margin: 0 0 22px;
+  text-shadow:
+    1px 0 var(--brown),
+    -1px 0 var(--brown),
+    0 1px var(--brown),
+    0 -1px var(--brown);
+  text-transform: uppercase;
+}
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+h1,
+h2,
+h3 {
+  font-family: "Anonymous Pro", "Courier New", monospace;
+}
+h1 {
+  font-family: "Exo", sans-serif;
+  font-size: clamp(3.6rem, 9vw, 7.2rem);
+  font-weight: normal;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  margin-bottom: 42px;
+}
+h1 span {
+  color: var(--pink);
+  text-shadow:
+    1px 0 var(--brown),
+    -1px 0 var(--brown),
+    0 1px var(--brown),
+    0 -1px var(--brown);
+}
+.tagline {
+  font-family: "Exo", sans-serif;
+  font-size: calc(clamp(1.35rem, 2.7vw, 2.4rem) - 3pt);
+  line-height: 1.15;
+  max-width: 600px;
+}
+.button {
+  background: var(--brown);
+  border: 0;
+  color: var(--pink);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Julius Sans One", sans-serif;
+  font-size: calc(0.72rem + 5pt);
+  gap: 20px;
+  letter-spacing: 0.1em;
+  margin-top: 25px;
+  padding: 17px 20px;
+  text-transform: uppercase;
+}
+.button:hover {
+  background: var(--pink);
+  color: var(--brown);
+}
+.section {
+  border-top: 1px solid var(--green-line);
+  display: grid;
+  gap: 70px;
+  grid-template-columns: 1fr 2fr;
+  margin: auto;
+  max-width: 1180px;
+  padding: 90px 32px;
+}
+h2 {
+  font-size: clamp(2.7rem, 5vw, 5rem);
+  font-weight: normal;
+  letter-spacing: -0.05em;
+  line-height: 0.92;
+}
+.project-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, 1fr);
+}
+.project {
+  background: rgba(196, 126, 148, 0.3);
+  border: 1px solid var(--brown);
+  min-height: 270px;
+  padding: 28px;
+  transition: transform 0.2s ease;
+}
+.project:hover {
+  transform: translateY(-5px);
+}
+.project-number {
+  color: var(--pink);
+  font-family: "Julius Sans One", sans-serif;
+  font-size: calc(0.85rem + 5pt);
+  text-shadow:
+    1px 0 var(--brown),
+    -1px 0 var(--brown),
+    0 1px var(--brown),
+    0 -1px var(--brown);
+}
+h3 {
+  font-size: 2rem;
+  font-weight: normal;
+  margin: 75px 0 14px;
+}
+.project p {
+  font-family: "Exo", sans-serif;
+  font-size: calc(1rem - 3pt);
+  line-height: 1.45;
+  max-width: 280px;
+}
+.project small,
+.skills span,
+label,
+input,
+textarea,
+footer {
+  font-family: "Julius Sans One", sans-serif;
+}
+.project small {
+  color: var(--brown-muted);
+  font-size: calc(0.7rem + 5pt);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.about {
+  background: rgba(255, 255, 255, 0.16);
+  max-width: none;
+  padding-left: max(32px, calc((100% - 1116px) / 2));
+  padding-right: max(32px, calc((100% - 1116px) / 2));
+}
+.large-copy {
+  font-family: "Exo", sans-serif;
+  font-size: calc(clamp(1.215rem, 2.25vw, 1.98rem) - 3pt);
+  line-height: 1.2;
+  max-width: 680px;
+}
+.inline-emoticon {
+  display: inline-block;
+  height: 1em;
+  object-fit: contain;
+  vertical-align: middle;
+  width: 1em;
+}
+.education {
+  background: var(--brown);
+  color: var(--pink);
+}
+.education-list {
+  display: grid;
+  gap: 18px;
+}
+.education-item {
+  border-left: 2px solid var(--pink);
+  padding: 4px 0 22px 24px;
+}
+.education-item h3 {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  margin: 24px 0 8px;
+}
+.education-item p {
+  color: var(--pink);
+  font-family: "Julius Sans One", sans-serif;
+  font-size: calc(0.8rem + 2pt);
+  margin: 0;
+}
+.skills-groups {
+  display: grid;
+  gap: 42px;
+  margin-top: 45px;
+}
+.skills-group h3,
+.experience-list h3 {
+  font-size: 1.3rem;
+  margin: 0 0 20px;
+}
+.skill-list {
+  display: grid;
+  gap: 14px;
+}
+.skill-row {
+  align-items: center;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: minmax(120px, 1fr) minmax(130px, 1fr);
+}
+.skill-name {
+  font-family: "Julius Sans One", sans-serif;
+  font-size: calc(0.7rem + 5pt);
+}
+.skill-meter {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(5, 1fr);
+}
+.skill-meter span {
+  background: rgba(90, 56, 37, 0.18);
+  height: 9px;
+}
+.skill-meter span.is-filled {
+  background: var(--brown);
+}
+.experience-list {
+  margin-top: 55px;
+}
+.experience-list p {
+  align-items: center;
+  display: flex;
+  font-family: "Julius Sans One", sans-serif;
+  font-size: calc(0.8rem + 2pt);
+  gap: 18px;
+  margin: 0 0 14px;
+}
+.experience-list small {
+  color: var(--brown-muted);
+  font-family: "Julius Sans One", sans-serif;
+  font-size: 0.7rem;
+  margin-left: auto;
+  text-transform: uppercase;
+}
+.contact {
+  background: linear-gradient(135deg, var(--pink), rgba(255, 154, 198, 0.35));
+  border: 2px solid var(--brown);
+  color: var(--brown);
+  display: grid;
+  gap: 70px;
+  grid-template-columns: 1fr 1fr;
+  padding: 90px max(32px, calc((100% - 1116px) / 2));
+}
+.contact .eyebrow {
+  color: var(--brown);
+  text-shadow: none;
+}
+.contact h2 {
+  margin-bottom: 0;
+}
+.linkedin-link {
+  border-bottom: 1px solid var(--brown);
+  display: inline-flex;
+  font-family: "Julius Sans One", sans-serif;
+  font-size: calc(0.7rem + 5pt);
+  gap: 18px;
+  letter-spacing: 0.08em;
+  margin-top: 35px;
+  padding-bottom: 7px;
+  text-transform: uppercase;
+}
+.linkedin-link:hover {
+  color: var(--pink);
+}
+form {
+  display: grid;
+  gap: 22px;
+}
+label {
+  font-size: calc(0.7rem + 5pt);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.contact label,
+.contact input,
+.contact textarea {
+  font-family: "Exo", sans-serif;
+}
+input,
+textarea {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(90, 56, 37, 0.65);
+  color: inherit;
+  display: block;
+  font-size: calc(1rem + 5pt);
+  margin-top: 10px;
+  outline: 0;
+  padding: 10px 0;
+  resize: vertical;
+  width: 100%;
+}
+input::placeholder,
+textarea::placeholder {
+  color: rgba(90, 56, 37, 0.75);
+}
+.contact input::placeholder,
+.contact textarea::placeholder {
+  font-family: "Exo", sans-serif;
+}
+.contact .button {
+  background: var(--green);
+  color: var(--brown);
+  justify-self: start;
+}
+.contact .button:hover {
+  background: var(--brown);
+  color: var(--pink);
+}
+.form-status {
+  font-family: "Exo", sans-serif;
+  font-size: calc(0.8rem - 3pt);
+  margin: 0;
+}
+footer {
+  display: flex;
+  font-size: calc(0.7rem + 5pt);
+  justify-content: space-between;
+  letter-spacing: 0.08em;
+  margin: auto;
+  max-width: 1180px;
+  padding: 28px 32px;
+  text-transform: uppercase;
+}
+@media (max-width: 700px) {
+  .icon-nav {
+    gap: 2px;
+  }
+  .icon-nav-link {
+    height: 57px;
+    width: 57px;
+  }
+  .hero {
+    margin-top: 30px;
+    padding-bottom: 100px;
+    padding-top: 70px;
+  }
+  .section,
+  .contact {
+    display: block;
+    padding-bottom: 70px;
+    padding-top: 70px;
+  }
+  .section-heading {
+    margin-bottom: 45px;
+  }
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact h2 {
+    margin-bottom: 55px;
+  }
+  .skill-row {
+    gap: 8px;
+    grid-template-columns: 1fr;
+  }
+  h3 {
+    margin-top: 65px;
+  }
+}
