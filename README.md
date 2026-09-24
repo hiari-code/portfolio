@@ -24,4 +24,8 @@ npm run dev
 
 Open the local Vite URL shown in the terminal, usually `http://localhost:5173`.
 
+<<<<<<< HEAD
 The portfolio content is stored in `web/app/app.jsx`. The site does not need the API to display the portfolio.
+=======
+The portfolio content is stored in `web/app/app.jsx`. The site does not need the API to display the portfolio.
+>>>>>>> 59cb9fb2b27151fdb0d4a167809a930b9a92ba4f
