@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './app.scss';
 import Header from './components/menu/header.jsx';
+import waterfallOne from './components/menu/icons/waterfall1.png';
+import waterfallTwo from './components/menu/icons/waterfall2.png';
 
 const portfolio = {
   name: 'Hiarimino R.',
@@ -64,7 +66,7 @@ function App() {
   return <>
     <Header name="Tongasoa, Bienvenu, Welcome!" />
     <main id="top">
-      <section className="hero">
+      <section className="hero" style={{ '--waterfall-one': `url(${waterfallOne})`, '--waterfall-two': `url(${waterfallTwo})` }}>
         <p className="eyebrow">Hello, I'm</p>
         <h1>{portfolio.name.replace(/\.$/, '')}<span>.</span></h1>
         <p className="tagline">{portfolio.tagline}</p>
