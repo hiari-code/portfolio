@@ -3,6 +3,7 @@
 :root {
   --green: #e1f7d9;
   --pink: #ff9ac6;
+  --pink-dark: #c47e94;
   --brown: #5a3825;
   --brown-muted: #7a5a45;
   --green-line: #789b68;
@@ -339,8 +340,8 @@ footer {
   width: 1em;
 }
 .education {
-  background: var(--brown);
-  color: var(--pink);
+  background: var(--green);
+  color: var(--brown);
 }
 .education-list {
   display: grid;
@@ -355,10 +356,19 @@ footer {
   margin: 24px 0 8px;
 }
 .education-item p {
-  color: var(--pink);
+  color: var(--pink-dark);
   font-family: "Julius Sans One", sans-serif;
   font-size: calc(0.8rem + 2pt);
+  font-weight: bold;
   margin: 0;
+}
+.education-item small {
+  color: var(--brown-muted);
+  display: block;
+  font-family: "Julius Sans One", sans-serif;
+  font-size: 0.7rem;
+  margin-top: 8px;
+  text-transform: uppercase;
 }
 .skills-groups {
   display: grid;
@@ -397,7 +407,7 @@ footer {
   background: var(--brown);
 }
 .experience-list {
-  margin-top: 55px;
+  margin: 45px 0 0;
 }
 .experience-list p {
   align-items: center;
@@ -406,13 +416,40 @@ footer {
   font-size: calc(0.8rem + 2pt);
   gap: 18px;
   margin: 0 0 14px;
+  color: var(--pink);
+}
+.experience-list .project-number {
+  color: var(--green);
 }
 .experience-list small {
-  color: var(--brown-muted);
+  color: var(--pink);
   font-family: "Julius Sans One", sans-serif;
   font-size: 0.7rem;
   margin-left: auto;
   text-transform: uppercase;
+}
+.skills-section {
+  background: var(--brown);
+  color: var(--pink);
+}
+.skills-section .eyebrow {
+  color: var(--brown);
+  text-shadow:
+    1px 0 var(--pink),
+    -1px 0 var(--pink),
+    0 1px var(--pink),
+    0 -1px var(--pink);
+}
+.skills-section .large-copy,
+.skills-section .experience-list h3,
+.skills-section .skills-group h3 {
+  color: var(--green);
+}
+.skills-section .skill-meter span {
+  background: rgba(225, 247, 217, 0.22);
+}
+.skills-section .skill-meter span.is-filled {
+  background: var(--pink);
 }
 .contact {
   background: linear-gradient(135deg, var(--pink), rgba(255, 154, 198, 0.35));

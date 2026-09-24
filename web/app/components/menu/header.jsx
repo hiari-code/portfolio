@@ -7,9 +7,9 @@ import skillsIcon from './icons/skills.png';
 
 const menuItems = [
   { label: 'About', href: '#about', icon: aboutIcon },
-  { label: 'Education', href: '#education', icon: gradIcon },
-  { label: 'Skills & experience', href: '#skills', icon: skillsIcon },
   { label: 'Projects', href: '#work', icon: lightbulbIcon },
+  { label: 'Skills & experience', href: '#skills', icon: skillsIcon },
+  { label: 'Education', href: '#education', icon: gradIcon },
   { label: 'Contact', href: '#contact', icon: sendIcon }
 ];
 

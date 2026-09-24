@@ -24,8 +24,8 @@ const portfolio = {
     {
       title: 'Languages',
       skills: [
-        { name: 'JavaScript', level: 4 },
         { name: 'Python', level: 4 },
+        { name: 'JavaScript', level: 4 },
         { name: 'Javascript eXtension', level: 3 },
         { name: 'Java', level: 3 },
         { name: 'SQL', level: 2 }
@@ -72,28 +72,24 @@ function App() {
         <p className="tagline">{portfolio.tagline}</p>
         <a className="button" href="#work">See my work <span aria-hidden="true">↓</span></a>
       </section>
+      <section className="section about" id="about">
+        <div className="section-heading"><p className="eyebrow">A little about me</p><h2>Curious by nature. Creative by practice.</h2></div>
+        <div><p className="large-copy">{portfolio.bio.split('Madagascar')[0]}Madagascar <img className="inline-emoticon" src="/hibiscus.svg" alt="Hibiscus" />{portfolio.bio.split('Madagascar')[1]}</p></div>
+      </section>
       <section className="section" id="work">
         <div className="section-heading"><p className="eyebrow">Selected work</p><h2>Things I've built.</h2></div>
         <div className="project-grid">{portfolio.projects.map((project, index) => <article className="project" key={project.name}>
           <span className="project-number">0{index + 1}</span><h3>{project.name}</h3><p>{project.description}</p><small>{project.technologies}</small>
         </article>)}</div>
       </section>
-      <section className="section about" id="about">
-        <div className="section-heading"><p className="eyebrow">A little about me</p><h2>Curious by nature. Creative by practice.</h2></div>
-        <div><p className="large-copy">{portfolio.bio.split('Madagascar')[0]}Madagascar <img className="inline-emoticon" src="/hibiscus.svg" alt="Hibiscus" />{portfolio.bio.split('Madagascar')[1]}</p></div>
-      </section>
-      <section className="section education" id="education">
-        <div className="section-heading"><p className="eyebrow">Education</p><h2>What shaped me.</h2></div>
-        <div className="education-list">
-          <article className="education-item"><span className="project-number">01</span><h3>BS, Computer Science</h3><p>Central Michigan University</p></article>
-          <article className="education-item"><span className="project-number">02</span><h3>AA, emphasis in Computer Science</h3><p>Illinois Central College</p></article>
-          <article className="education-item"><span className="project-number">03</span><h3>BA, Economics</h3><p>Catholic University of Madagascar</p></article>
-        </div>
-      </section>
       <section className="section skills-section" id="skills">
-        <div className="section-heading"><p className="eyebrow">What I bring</p><h2>Technical skills and experience.</h2></div>
+        <div className="section-heading"><p className="eyebrow">What I bring</p><h2>Experience and technical skills.</h2></div>
         <div>
-          <p className="large-copy">A snapshot of the technologies I use, the areas I am actively developing, and the experience I bring to software projects.</p>
+          <p className="large-copy">The technologies I use, the skills I am developing, and the experience I bring to every project.</p>
+          <div className="experience-list">
+            <h3>Experience</h3>
+            {portfolio.experience.map((experience, index) => <p key={experience.role}><span className="project-number">0{index + 1}</span><span>{experience.role}</span>{experience.timing && <small>{experience.timing}</small>}</p>)}
+          </div>
           <div className="skills-groups">
             {portfolio.skillGroups.map((group) => <div className="skills-group" key={group.title}>
               <h3>{group.title}</h3>
@@ -107,10 +103,14 @@ function App() {
               </div>
             </div>)}
           </div>
-          <div className="experience-list">
-            <h3>Experience</h3>
-            {portfolio.experience.map((experience, index) => <p key={experience.role}><span className="project-number">0{index + 1}</span><span>{experience.role}</span>{experience.timing && <small>{experience.timing}</small>}</p>)}
-          </div>
+        </div>
+      </section>
+      <section className="section education" id="education">
+        <div className="section-heading"><p className="eyebrow">Education</p><h2>What shaped me.</h2></div>
+        <div className="education-list">
+          <article className="education-item"><span className="project-number">01</span><h3>Bachelor of Science, Computer Science</h3><p>Central Michigan University</p><small>December 2025</small></article>
+          <article className="education-item"><span className="project-number">02</span><h3>Associate of Arts, emphasis in Computer Science</h3><p>Illinois Central College</p><small>July 2023</small></article>
+          <article className="education-item"><span className="project-number">03</span><h3>Bachelor of Arts, Economics</h3><p>Catholic University of Madagascar</p><small>December 2019</small></article>
         </div>
       </section>
       <section className="contact" id="contact"><div><p className="eyebrow">Get in touch</p><h2>Have a project<br />in mind?</h2><a className="linkedin-link" href={portfolio.linkedin} target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></div><form onSubmit={handleSubmit}><label>Email<input name="email" type="email" placeholder="you@example.com" required /></label><label>Message<textarea name="message" rows="4" placeholder="Tell me a little about it..." required /></label><button className="button" type="submit">Send message <span aria-hidden="true">↗</span></button>{status && <p className="form-status">{status}</p>}</form></section>
